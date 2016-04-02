@@ -39,31 +39,25 @@
 			<div class="row center">
 				<div class="col m6">
 					<a href="#"><div class="col m5 right add">
-						
 						<i class="fa fa-plus "></i>
 						<p>QAYDA POZUNTUSU ELAVE ET</p>
 					</div>
 				</a>
 			</div>
 			<div class="col m6">
-				<a href="#"><div class="col m5 nomre">
+				<a href="#"><div class="col m5 nomre activeTab">
 					<i class="fa fa-search-plus"></i><p>NOMRE YOXLA</p></div></a>
 				</div>
 			</div>
 		</div>
-	
-	<div class=" center">
-		<div class="numYoxla center ">
-		
-			<input type="text" >
-			<input type="text" >
-			<input type="text" >
-			<input type="submit" value=">>>>">
-		
-		
+		<div class=" center">
+			<div class="numYoxla center activeTa">
+				<input type="text" >
+				<input type="text" >
+				<input type="text" >
+				<input type="submit" value=">>>>">
+			</div>
 		</div>
-	</div>
-	
 	</header>
 	<main>
 	<div class="container">
@@ -145,7 +139,7 @@
 			<li><a href="collapsible.html">AVTO DAYANACAQLAR</a></li>
 			<li><a href="collapsible.html">TİXAC OLAN KUÇƏLƏR</a></li>
 		</ul>
-		
+
 	</div>
 </div>
 <div class="copy">
@@ -159,14 +153,14 @@
 <script >
 $(document).ready(function() {
 $(".nomre").click(function() {
-    $(".numYoxla").removeClass("disp");
-    $(".nomre").addClass("activeTab");
-    $(".add").removeClass("activeTab")
-  });
+$(".numYoxla").slideToggle(500);
+$(".nomre").addClass("activeTab");
+$(".add").removeClass("activeTab");
+});
 $(".add").click(function() {
-    $(".numYoxla").addClass("disp");
-    $(".add").addClass("activeTab");
-    $(".nomre").removeClass("activeTab");
-  });
+$(".numYoxla").slideUp(500);
+$(".add").addClass("activeTab");
+$(".nomre").removeClass("activeTab");
+});
 });
 </script>

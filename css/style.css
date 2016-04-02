@@ -19,8 +19,9 @@ body{
 .logon{
 	background-color:#ffd008;
 	width:100px;
-	height:30px;
+	height:40px;
 	color:#282828;
+	border:none;
 }
 
 .nav-wrapper{
@@ -151,7 +152,7 @@ color:white;
 }
 
 .numYoxla{
-	padding-top:10px;
+	padding-top:15px;
 	width:100%;
 	height:80px;
 	display:inline-block;
