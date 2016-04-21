@@ -1164,7 +1164,7 @@ class Router implements RegistrarContract
     }
 
     /**
-     * Alias for the "currentRouteName" method.
+     * Alias for the "currentRouteNamed" method.
      *
      * @param  mixed  string
      * @return bool

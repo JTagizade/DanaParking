@@ -242,9 +242,9 @@ class Route
             $middleware = [$middleware];
         }
 
-        $this->action['middleware'] = array_merge(
+        $this->action['middleware'] = array_unique(array_merge(
             (array) Arr::get($this->action, 'middleware', []), $middleware
-        );
+        ));
 
         return $this;
     }
@@ -267,7 +267,6 @@ class Route
     /**
      * Get the parameters that are listed in the route / controller signature.
      *
-     * @param string|null  $subClass
      * @return array
      */
     public function signatureParameters($subClass = null)
@@ -449,7 +448,9 @@ class Route
         // compile that and get the parameter matches for this domain. We will then
         // merge them into this parameters array so that this array is completed.
         $params = $this->matchToKeys(
+
             array_slice($this->bindPathParameters($request), 1)
+
         );
 
         // If the route has a regular expression for the host part of the URI, we will
@@ -822,29 +823,7 @@ class Route
      */
     public function uses($action)
     {
-        $action = is_string($action) ? $this->addGroupNamespaceToStringUses($action) : $action;
-
-        return $this->setAction(array_merge($this->action, $this->parseAction([
-            'uses' => $action,
-            'controller' => $action,
-        ])));
-    }
-
-    /**
-     * Parse a string based action for the "uses" fluent method.
-     *
-     * @param  string  $action
-     * @return string
-     */
-    protected function addGroupNamespaceToStringUses($action)
-    {
-        $groupStack = last($this->router->getGroupStack());
-
-        if (isset($groupStack['namespace']) && strpos($action, '\\') !== 0) {
-            return $groupStack['namespace'].'\\'.$action;
-        }
-
-        return $action;
+        return $this->setAction(array_merge($this->action, $this->parseAction($action)));
     }
 
     /**

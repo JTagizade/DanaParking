@@ -11,6 +11,37 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/' , 'DanaController@index');  // Homepage
+
+Route::get('/register' , 'DanaController@register');  //Registration page
+
+Route::post('store','DanaController@store');  
+
+Route::get('/showall' , 'DanaController@showAll');  // Show all users
+
+Route::get('/post' , 'ContentController@showall');
+
+Route::get('delete/{id}','DanaController@destroy');
+
+Route::get('edit/{id}', 'DanaController@edit');
+
+Route::post('update/{id}', 'DanaController@update');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
